@@ -40,7 +40,6 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-siz
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
 @keyframes dropDown{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
 @keyframes countUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
-@keyframes barGrow{from{width:0%;}to{}}
 
 .loading-text{font-size:13px;color:var(--ink3);font-weight:500;}
 .error-message{max-width:500px;padding:20px;background:var(--rose-lt);border:1px solid var(--rose);border-radius:var(--radius);color:var(--rose);font-size:13px;line-height:1.6;display:none;}
@@ -212,71 +211,6 @@ tbody tr:last-child td{border-bottom:none;}
 tbody tr:hover td{background:var(--surface2);}
 tbody tr{transition:background 0.12s;}
 
-/* ══════════════════════════════════════════════
-   MENTOR DEEP-DIVE SECTION (NEW)
-══════════════════════════════════════════════ */
-.mentor-select-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
-.mentor-select-label{font-size:12px;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:0.09em;white-space:nowrap;}
-.mentor-select{appearance:none;padding:9px 36px 9px 14px;border:1.5px solid var(--border2);border-radius:var(--radius-sm);background:var(--surface);color:var(--ink);font-family:var(--font-body);font-size:13px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23c48a00' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;min-width:220px;transition:border-color 0.15s;}
-.mentor-select:focus{outline:none;border-color:var(--gold-mid);}
-
-/* Overall Rating display */
-.overall-rating-banner{background:linear-gradient(135deg,#4a2800 0%,#7a4f00 60%,#a06e00 100%);border-radius:var(--radius);padding:22px 28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;box-shadow:var(--shadow-md);}
-.overall-rating-score{text-align:center;}
-.overall-rating-num{font-family:var(--font-display);font-size:56px;line-height:1;color:#f5c842;letter-spacing:-0.03em;}
-.overall-rating-denom{font-size:14px;color:rgba(253,233,160,0.55);margin-top:2px;}
-.overall-rating-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:rgba(253,233,160,0.50);margin-bottom:4px;}
-.star-row{display:flex;gap:4px;margin-top:6px;}
-.star{font-size:18px;line-height:1;}
-.star.filled{color:#f5c842;}
-.star.half{color:#f5c842;opacity:0.5;}
-.star.empty{color:rgba(253,233,160,0.25);}
-.rating-breakdown-col{flex:1;min-width:200px;}
-.rating-bar-row{display:grid;grid-template-columns:80px 1fr 32px;gap:8px;align-items:center;margin-bottom:5px;}
-.rating-bar-lbl{font-size:11px;color:rgba(253,233,160,0.70);font-weight:500;}
-.rating-bar-track{background:rgba(253,233,160,0.12);border-radius:4px;height:8px;overflow:hidden;}
-.rating-bar-fill{height:100%;border-radius:4px;background:#f5c842;transition:width 1.2s cubic-bezier(.22,1,.36,1);}
-.rating-bar-count{font-size:11px;color:rgba(253,233,160,0.55);text-align:right;}
-.rating-total-pill{background:rgba(253,233,160,0.12);border:1px solid rgba(253,233,160,0.25);border-radius:20px;padding:5px 14px;font-size:12px;color:rgba(253,233,160,0.80);font-weight:500;white-space:nowrap;}
-
-/* Q1–Q5 grid */
-.questions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
-.q-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow-sm);transition:box-shadow 0.2s,transform 0.2s;}
-.q-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
-.q-card-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:16px;}
-.q-number{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#4a2800,#7a4f00);color:#fde9a0;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
-.q-text{font-size:13px;font-weight:500;color:var(--ink);line-height:1.45;}
-.q-bars{display:flex;flex-direction:column;gap:9px;}
-.q-bar-row{display:flex;align-items:center;gap:10px;}
-.q-bar-label{width:26px;font-size:11px;font-weight:700;color:var(--ink3);}
-.q-bar-track{flex:1;background:var(--bg2);border-radius:6px;height:20px;overflow:hidden;position:relative;}
-.q-bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:8px;transition:width 1s cubic-bezier(.22,1,.36,1);}
-.q-bar-fill.yes{background:linear-gradient(90deg,#10b981,#059669);}
-.q-bar-fill.no{background:linear-gradient(90deg,#ef4444,#dc2626);}
-.q-bar-fill span{font-size:10px;font-weight:700;color:rgba(255,255,255,0.9);}
-.q-bar-count{width:44px;font-size:11px;font-weight:600;color:var(--ink3);text-align:right;}
-.q-summary{margin-top:12px;display:flex;align-items:center;justify-content:space-between;}
-.q-pct-pill{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;}
-.q-pct-pill.good{background:#d1fae5;color:#065f46;border:1px solid #6ee7b7;}
-.q-pct-pill.mid{background:#fef3c7;color:#78350f;border:1px solid #fcd34d;}
-.q-pct-pill.low{background:#fee2e2;color:#7f1d1d;border:1px solid #fca5a5;}
-.q-total{font-size:11px;color:var(--ink4);}
-
-/* Aggregated view when no mentor selected */
-.agg-table-wrap{overflow-x:auto;}
-.agg-table{width:100%;border-collapse:collapse;font-size:12.5px;}
-.agg-table thead th{padding:10px 14px;font-size:10px;font-weight:600;color:#fde9a0;text-transform:uppercase;letter-spacing:0.09em;background:linear-gradient(135deg,#4a2800,#7a4f00);white-space:nowrap;}
-.agg-table thead th:first-child{border-radius:var(--radius-sm) 0 0 0;}
-.agg-table thead th:last-child{border-radius:0 var(--radius-sm) 0 0;}
-.agg-table tbody td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:middle;}
-.agg-table tbody tr:hover td{background:var(--surface2);}
-.yn-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;}
-.yn-pill.yes{background:#d1fae5;color:#065f46;}
-.yn-pill.no{background:#fee2e2;color:#7f1d1d;}
-.mini-yes-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-top:4px;gap:1px;}
-.mini-yes-fill{background:#10b981;border-radius:3px 0 0 3px;transition:width 0.8s cubic-bezier(.22,1,.36,1);}
-.mini-no-fill{background:#ef4444;border-radius:0 3px 3px 0;flex:1;}
-
 ::-webkit-scrollbar{width:5px;height:5px;}
 ::-webkit-scrollbar-track{background:var(--bg2);}
 ::-webkit-scrollbar-thumb{background:var(--gold-mid);border-radius:99px;}
@@ -292,7 +226,6 @@ tbody tr{transition:background 0.12s;}
   .nps-hero-row{grid-template-columns:1fr;}
   .nps-charts-row{grid-template-columns:1fr;}
   .logo-name{font-size:18px;}
-  .questions-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -439,8 +372,7 @@ tbody tr{transition:background 0.12s;}
 
   <!-- ═══ MENTOR PERFORMANCE PANEL ═══ -->
   <div class="panel" id="panel-mentors">
-
-    <!-- TABLE CARD -->
+    <!-- TABLE CARD (moved to top) -->
     <div class="card" style="padding:0;overflow:hidden">
       <div id="mentorTableSummaryBar" style="display:flex;align-items:center;gap:24px;padding:14px 22px;background:linear-gradient(135deg,#4a2800,#7a4f00);flex-wrap:wrap;">
         <div style="color:#fde9a0;font-size:12px;"><span style="opacity:0.6;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:2px;">Global Mean</span><span id="mtSumGlobalMean" style="font-family:'DM Serif Display',Georgia,serif;font-size:18px;">—</span></div>
@@ -457,7 +389,7 @@ tbody tr{transition:background 0.12s;}
       <div style="padding:12px 22px;font-size:11px;color:var(--ink4);border-top:1px solid var(--border);">* Bayesian = (Global Mean × Σ Responses + Avg Rating × Mentor Responses) / (Σ Responses + Mentor Responses)</div>
     </div>
 
-    <!-- INSIGHT CHART CARD -->
+    <!-- NEW CHART BELOW TABLE: Scatter (Responses vs Rating) + Horizontal Top/Bottom Bars -->
     <div class="card">
       <div class="card-header">
         <div class="card-title">Mentor Insights — Responses vs. Rating</div>
@@ -470,15 +402,19 @@ tbody tr{transition:background 0.12s;}
           <span class="badge badge-gold" id="insightChartBadge">—</span>
         </div>
       </div>
+
+      <!-- Scatter: Responses vs Rating -->
       <div id="insightScatterWrap" style="position:relative;width:100%;height:380px;">
         <canvas id="insightScatterChart"></canvas>
       </div>
-      <div id="insightHorizWrap" style="position:relative;width:100%;height:380px;display:none;">
-        <canvas id="insightHorizChart"></canvas>
-      </div>
+
+      <!-- Top vs Bottom Horizontal Bar -->
+     
+      <!-- Response Volume Bar -->
       <div id="insightResponseWrap" style="position:relative;width:100%;height:380px;display:none;">
         <canvas id="insightResponseChart"></canvas>
       </div>
+
       <div style="display:flex;gap:20px;margin-top:14px;flex-wrap:wrap;" id="insightScatterLegend">
         <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink3);">
           <span style="width:12px;height:12px;border-radius:50%;background:#10b981;display:inline-block;opacity:0.85;"></span>Excellent (≥4.3)
@@ -495,32 +431,7 @@ tbody tr{transition:background 0.12s;}
         <div style="margin-left:auto;font-size:11px;color:var(--ink4);">* Bubble size = number of subjects taught</div>
       </div>
     </div>
-
-    <!-- ════════════════════════════════════════
-         FACULTY FEEDBACK DEEP-DIVE (NEW)
-    ════════════════════════════════════════ -->
-    <div class="card" id="feedbackDeepDiveCard">
-      <div class="card-header" style="flex-wrap:wrap;gap:12px;">
-        <div>
-          <div class="card-title">Faculty Feedback Deep-Dive</div>
-          <div style="font-size:12px;color:var(--ink3);margin-top:3px;">Overall Rating + Q1–Q5 Yes/No responses per faculty</div>
-        </div>
-        <div class="mentor-select-bar">
-          <span class="mentor-select-label">View:</span>
-          <select class="mentor-select" id="mentorDeepDiveSelect" onchange="renderDeepDive()">
-            <option value="">— All Mentors (aggregated) —</option>
-          </select>
-          <span class="badge badge-gold" id="deepDiveBadge">—</span>
-        </div>
-      </div>
-
-      <!-- Content rendered here by JS -->
-      <div id="deepDiveContent">
-        <div style="text-align:center;padding:40px;color:var(--ink3);">Select a college to load feedback data</div>
-      </div>
-    </div>
-
-  </div><!-- end mentors panel -->
+  </div>
 
   <!-- ═══ NPS ANALYTICS PANEL ═══ -->
   <div class="panel" id="panel-nps">
@@ -654,19 +565,7 @@ const COLLEGES=[
   {name:"S-VYASA University",gid:"29895230"},{name:"Asian School of Business",gid:"1108050649"}
 ];
 const SHEET_ID='19HsWARl8RFNZ6nc-bUCBKKEN39JkQVxCBfbNCUSe2_4';
-
-// Q1–Q5 question text
-const QUESTIONS=[
-  {key:'Q1',text:'Were the sessions delivered by the Faculty clear and well-structured?'},
-  {key:'Q2',text:'Are you convinced with the professional behavior of the Faculty during sessions?'},
-  {key:'Q3',text:'Was the trainer effective in solving problems and explaining solutions with examples?'},
-  {key:'Q4',text:'Did the trainer support doubt clearing and student queries?'},
-  {key:'Q5',text:'Were the sessions useful in improving your understanding and skills?'}
-];
-
 let currentCollege=null,MENTORS=[],TABLE_DATA=[],DEPT_LIST=[];
-// MENTOR_FEEDBACK: { mentorName: { overallRatings:[], Q1:{yes,no}, Q2:{yes,no}, ... } }
-let MENTOR_FEEDBACK={};
 let NPS_DATA={scores:[],promoters:0,passives:0,detractors:0,npsIndex:null,avg:0,total:0,scoreFreq:{}};
 let currentPanel='summary',currentDeptFilter='all';
 let chartInstances={},npsDonutInst=null,npsBarChartInst=null;
@@ -729,65 +628,36 @@ async function loadSheetData(){
           error(){throw new Error('Parse failed');}
         });
       })
-      .catch(err=>{
-  console.error(err);
-  document.getElementById('loadingText').style.display='none';
-  document.querySelector('.spinner').style.display='none';
-  errEl.classList.add('show');
-  reject(err);
-});
+      .catch(err=>{console.error(err);errEl.classList.add('show');reject(err);});
   });
 }
 
 /* ── PROCESS DATA ── */
 function processSheetData(rows){
   TABLE_DATA=[];
-  MENTOR_FEEDBACK={};
   const mentorStats={},deptSet=new Set(),subjectSet=new Set(),npsScores=[];
-
   rows.forEach(row=>{
     const dept=row.department||'Unknown';
     if(dept!=='Unknown')deptSet.add(dept);
-
-    // NPS
     const npsRaw=row['nps_score']||row['NPS Score']||row['nps score']||row['NPSScore']||'';
     const npsVal=parseInt(npsRaw,10);
     if(!isNaN(npsVal)&&npsVal>=1&&npsVal<=10)npsScores.push(npsVal);
-
-    // Overall rating (row-level, not per-subject)
-    const overallRaw=row['overall_rating']||row['Overall Rating']||row['overall rating']||row['OverallRating']||'';
-    const overallVal=parseFloat(overallRaw);
-
-    // Q1–Q5 (yes/no, row-level, linked to every mentor in the row)
-    const qAnswers={};
-    QUESTIONS.forEach(q=>{
-      const raw=(row[q.key]||row[q.key.toLowerCase()]||row['q'+q.key.slice(1)]||'').trim().toLowerCase();
-      qAnswers[q.key]=raw; // 'yes', 'no', or ''
-    });
-
-    // Subject-mentor pairs
     for(let i=1;i<=7;i++){
       const sn=row[`subject${i}_Name`],mn=row[`subject${i}_Mentor`],rt=parseFloat(row[`subject${i}_Rating`]);
-      if(sn&&mn&&!isNaN(rt)&&rt>0){
-        subjectSet.add(sn);
-        TABLE_DATA.push({dept,mentor:mn,subject:sn,rating:rt});
-        if(!mentorStats[mn])mentorStats[mn]={name:mn,depts:new Set([dept]),ratings:[],subjects:new Set()};
-        mentorStats[mn].depts.add(dept);mentorStats[mn].ratings.push(rt);mentorStats[mn].subjects.add(sn);
-
-        // Attach overall rating and Q1-Q5 to each mentor in this row
-        if(!MENTOR_FEEDBACK[mn]){
-          MENTOR_FEEDBACK[mn]={overallRatings:[],Q1:{yes:0,no:0},Q2:{yes:0,no:0},Q3:{yes:0,no:0},Q4:{yes:0,no:0},Q5:{yes:0,no:0}};
-        }
-        if(!isNaN(overallVal)&&overallVal>0&&overallVal<=5)MENTOR_FEEDBACK[mn].overallRatings.push(overallVal);
-        QUESTIONS.forEach(q=>{
-          if(qAnswers[q.key]==='yes')MENTOR_FEEDBACK[mn][q.key].yes++;
-          else if(qAnswers[q.key]==='no')MENTOR_FEEDBACK[mn][q.key].no++;
-        });
-      }
+     if(sn&&mn&&!isNaN(rt)&&rt>0){
+  subjectSet.add(sn);
+  TABLE_DATA.push({dept,mentor:mn,subject:sn,rating:rt});
+  if(!mentorStats[mn])mentorStats[mn]={name:mn,depts:new Set([dept]),ratings:[],subjects:new Set(),qs:[{y:0,n:0},{y:0,n:0},{y:0,n:0},{y:0,n:0},{y:0,n:0}]};
+  mentorStats[mn].depts.add(dept);mentorStats[mn].ratings.push(rt);mentorStats[mn].subjects.add(sn);
+  for(let q=1;q<=5;q++){
+    const ans=row[`subject${i}_Q${q}`]||'';
+    if(ans==='Yes')mentorStats[mn].qs[q-1].y++;
+    else if(ans==='No')mentorStats[mn].qs[q-1].n++;
+  } 
+}
     }
   });
 
-  // NPS processing
   const total=npsScores.length;
   const promoters=npsScores.filter(s=>s>=9).length;
   const passives=npsScores.filter(s=>s>=7&&s<=8).length;
@@ -809,10 +679,10 @@ function processSheetData(rows){
     const totalResponses=m.ratings.length;
     const avgXResponses=avg*totalResponses;
     const bayesianScore=((globalMean*totalAllResponses)+(avg*totalResponses))/(totalAllResponses+totalResponses);
-    return{name:m.name,depts:Array.from(m.depts),rating:parseFloat(avg.toFixed(2)),
-      avgXResponses:parseFloat(avgXResponses.toFixed(2)),
-      bayesianRating:parseFloat(bayesianScore.toFixed(7)),
-      subjects:m.subjects.size,responses:totalResponses};
+   return{name:m.name,depts:Array.from(m.depts),rating:parseFloat(avg.toFixed(2)),
+  avgXResponses:parseFloat(avgXResponses.toFixed(2)),
+  bayesianRating:parseFloat(bayesianScore.toFixed(7)),
+  subjects:m.subjects.size,responses:totalResponses,qs:m.qs};
   }).sort((a,b)=>b.bayesianRating-a.bayesianRating);
   MENTORS.forEach((m,idx)=>{m.rank=idx+1;m.percentile=MENTORS.length>1?Math.round((1-idx/(MENTORS.length-1))*100):100;});
   DEPT_LIST=Array.from(deptSet).sort();
@@ -831,20 +701,6 @@ function processSheetData(rows){
     document.getElementById('subjectSub').textContent=`Bayesian: ${topMentor.bayesianRating.toFixed(2)} · Avg: ${topMentor.rating.toFixed(1)}`;
   }else{document.getElementById('subjectCount').textContent='—';document.getElementById('subjectSub').textContent='No data';}
   document.getElementById('pageSub').textContent=`${DEPT_LIST.length} departments · ${MENTORS.length} mentors · ${subjectSet.size} subjects`;
-
-  // Populate mentor select
-  buildDeepDiveSelect();
-}
-
-/* ── BUILD DEEP-DIVE MENTOR SELECT ── */
-function buildDeepDiveSelect(){
-  const sel=document.getElementById('mentorDeepDiveSelect');
-  sel.innerHTML='<option value="">— All Mentors (aggregated) —</option>';
-  MENTORS.forEach(m=>{
-    const opt=document.createElement('option');
-    opt.value=m.name;opt.textContent=`${m.name} (Rank #${m.rank})`;
-    sel.appendChild(opt);
-  });
 }
 
 /* ── DEPT FILTER ── */
@@ -863,17 +719,20 @@ function setDeptFilter(val,btn){
   currentDeptFilter=val;
   document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
   if(btn)btn.classList.add('active');
-  if(currentPanel==='mentors'){renderMentorTable();renderInsightCharts(val);renderDeepDive();}
+  if(currentPanel==='mentors'){renderMentorTable();renderInsightCharts(val);}
 }
 
-/* ── GET FILTERED MENTORS ── */
+/* ── GET FILTERED MENTORS WITH RECALCULATED RANKS ── */
 function getFilteredMentors(filterDept){
   let list;
-  if(!filterDept||filterDept==='all'){list=[...MENTORS];}
-  else{list=MENTORS.filter(m=>m.depts.some(d=>d===filterDept));}
+  if(!filterDept || filterDept==='all'){
+    list = [...MENTORS];
+  } else {
+    list = MENTORS.filter(m=>m.depts.some(d=>d===filterDept));
+  }
   list.forEach((m,idx)=>{
-    m.filteredRank=idx+1;
-    m.filteredPercentile=list.length>1?Math.round((1-idx/(list.length-1))*100):100;
+    m.filteredRank = idx + 1;
+    m.filteredPercentile = list.length > 1 ? Math.round((1 - idx / (list.length - 1)) * 100) : 100;
   });
   return list;
 }
@@ -882,204 +741,10 @@ function getFilteredMentors(filterDept){
 function renderAllData(){
   renderMentorTable();
   renderInsightCharts(currentDeptFilter);
-  renderDeepDive();
   renderNPSSummary();
   renderNPSPanel();
   if(!chartInstances._summaryInit){initSummaryCharts();chartInstances._summaryInit=true;}
   else updateSummaryCharts();
-}
-
-/* ══════════════════════════════════════════════
-   DEEP-DIVE RENDER (OVERALL RATING + Q1–Q5)
-══════════════════════════════════════════════ */
-function renderDeepDive(){
-  const sel=document.getElementById('mentorDeepDiveSelect');
-  const selectedMentor=sel?sel.value:'';
-  const container=document.getElementById('deepDiveContent');
-  if(!MENTORS.length){container.innerHTML='<div style="text-align:center;padding:40px;color:var(--ink3);">No data loaded. Select a college above.</div>';return;}
-
-  if(selectedMentor){
-    renderSingleMentorDeepDive(selectedMentor,container);
-  } else {
-    renderAggregatedDeepDive(container);
-  }
-}
-
-function getMentorFeedbackData(mentorName){
-  return MENTOR_FEEDBACK[mentorName]||{overallRatings:[],Q1:{yes:0,no:0},Q2:{yes:0,no:0},Q3:{yes:0,no:0},Q4:{yes:0,no:0},Q5:{yes:0,no:0}};
-}
-
-function renderSingleMentorDeepDive(mentorName,container){
-  const fb=getMentorFeedbackData(mentorName);
-  const mentor=MENTORS.find(m=>m.name===mentorName);
-  document.getElementById('deepDiveBadge').textContent=`${mentorName}`;
-
-  // Overall rating stats
-  const orRatings=fb.overallRatings;
-  const orAvg=orRatings.length>0?(orRatings.reduce((a,b)=>a+b,0)/orRatings.length):null;
-  const orTotal=orRatings.length;
-
-  // Rating breakdown 1-5
-  const rBreakdown={1:0,2:0,3:0,4:0,5:0};
-  orRatings.forEach(r=>{const k=Math.round(r);if(rBreakdown[k]!==undefined)rBreakdown[k]++;});
-  const rMax=Math.max(...Object.values(rBreakdown),1);
-
-  // Stars
-  function starHTML(avg){
-    if(avg===null)return'<span style="color:rgba(253,233,160,0.3);font-size:16px;">No rating data</span>';
-    let h='';
-    for(let i=1;i<=5;i++){
-      if(avg>=i)h+=`<span class="star filled">★</span>`;
-      else if(avg>=i-0.5)h+=`<span class="star half">★</span>`;
-      else h+=`<span class="star empty">★</span>`;
-    }
-    return h;
-  }
-
-  const ratingLabels={1:'1 – Poor',2:'2 – Below Avg',3:'3 – Average',4:'4 – Good',5:'5 – Excellent'};
-
-  let overallHTML=`
-  <div class="overall-rating-banner" style="margin-bottom:18px;">
-    <div class="overall-rating-score">
-      <div class="overall-rating-label">Overall Rating</div>
-      <div class="overall-rating-num">${orAvg!==null?orAvg.toFixed(1):'—'}</div>
-      <div class="overall-rating-denom">out of 5.0 · ${orTotal} response${orTotal!==1?'s':''}</div>
-      <div class="star-row" style="justify-content:center;margin-top:8px;">${starHTML(orAvg)}</div>
-    </div>
-    <div class="rating-breakdown-col">
-      ${[5,4,3,2,1].map(r=>`
-        <div class="rating-bar-row">
-          <div class="rating-bar-lbl">${ratingLabels[r]}</div>
-          <div class="rating-bar-track">
-            <div class="rating-bar-fill" data-w="${Math.round(rBreakdown[r]/rMax*100)}%" style="width:0%;"></div>
-          </div>
-          <div class="rating-bar-count">${rBreakdown[r]}</div>
-        </div>`).join('')}
-    </div>
-    <div>
-      <div class="rating-total-pill">📊 ${orTotal} ratings collected</div>
-      ${mentor?`<div style="margin-top:10px;font-size:11px;color:rgba(253,233,160,0.55);">Rank #${mentor.rank} · Bayesian ${mentor.bayesianRating.toFixed(3)}</div>`:''}
-    </div>
-  </div>`;
-
-  // Q1-Q5 cards
-  let qHTML=`<div class="questions-grid">`;
-  QUESTIONS.forEach((q,idx)=>{
-    const{yes,no}=fb[q.key]||{yes:0,no:0};
-    const qTotal=yes+no;
-    const yesPct=qTotal>0?Math.round(yes/qTotal*100):0;
-    const noPct=qTotal>0?Math.round(no/qTotal*100):0;
-    const pillClass=yesPct>=80?'good':yesPct>=50?'mid':'low';
-    qHTML+=`
-    <div class="q-card">
-      <div class="q-card-header">
-        <div class="q-number">Q${idx+1}</div>
-        <div class="q-text">${q.text}</div>
-      </div>
-      <div class="q-bars">
-        <div class="q-bar-row">
-          <div class="q-bar-label" style="color:#065f46;">Yes</div>
-          <div class="q-bar-track">
-            <div class="q-bar-fill yes" data-w="${yesPct}%" style="width:0%;">${yesPct>15?`<span>${yes}</span>`:''}</div>
-          </div>
-          <div class="q-bar-count">${yes}</div>
-        </div>
-        <div class="q-bar-row">
-          <div class="q-bar-label" style="color:#7f1d1d;">No</div>
-          <div class="q-bar-track">
-            <div class="q-bar-fill no" data-w="${noPct}%" style="width:0%;">${noPct>15?`<span>${no}</span>`:''}</div>
-          </div>
-          <div class="q-bar-count">${no}</div>
-        </div>
-      </div>
-      <div class="q-summary">
-        <span class="q-pct-pill ${pillClass}">${yesPct}% Yes</span>
-        <span class="q-total">${qTotal} response${qTotal!==1?'s':''}</span>
-      </div>
-    </div>`;
-  });
-  qHTML+=`</div>`;
-
-  container.innerHTML=overallHTML+qHTML;
-
-  // Animate bars with delay
-  setTimeout(()=>{
-    container.querySelectorAll('[data-w]').forEach(el=>{
-      el.style.width=el.getAttribute('data-w');
-    });
-  },120);
-}
-
-function renderAggregatedDeepDive(container){
-  const list=getFilteredMentors(currentDeptFilter);
-  document.getElementById('deepDiveBadge').textContent=`${list.length} mentors`;
-  if(!list.length){container.innerHTML='<div style="text-align:center;padding:40px;color:var(--ink3);">No mentor data for current filter.</div>';return;}
-
-  // Build aggregated table
-  let html=`
-  <div style="margin-bottom:14px;font-size:12px;color:var(--ink3);">
-    Showing aggregated feedback across all <strong>${list.length} mentors</strong>. Select a specific mentor above for a detailed breakdown.
-  </div>
-  <div class="agg-table-wrap">
-  <table class="agg-table">
-    <thead>
-      <tr>
-        <th>Rank</th>
-        <th>Mentor</th>
-        <th>Dept</th>
-        <th>Overall Rating</th>
-        <th>Q1 Clear & Structured?</th>
-        <th>Q2 Professional Behavior?</th>
-        <th>Q3 Problem Solving?</th>
-        <th>Q4 Doubt Clearing?</th>
-        <th>Q5 Improved Understanding?</th>
-      </tr>
-    </thead>
-    <tbody>`;
-
-  list.forEach(m=>{
-    const fb=getMentorFeedbackData(m.name);
-    const orAvg=fb.overallRatings.length>0?(fb.overallRatings.reduce((a,b)=>a+b,0)/fb.overallRatings.length):null;
-    const s=deptStyle(m.depts[0]||'');
-
-    function qCell(qkey){
-      const{yes,no}=fb[qkey]||{yes:0,no:0};
-      const tot=yes+no;
-      const pct=tot>0?Math.round(yes/tot*100):null;
-      if(tot===0)return`<td style="text-align:center;color:var(--ink4);font-size:11px;">—</td>`;
-      return`<td>
-        <div style="display:flex;gap:5px;justify-content:center;flex-wrap:wrap;">
-          <span class="yn-pill yes">✓ ${yes}</span>
-          <span class="yn-pill no">✗ ${no}</span>
-        </div>
-        <div class="mini-yes-bar" style="margin-top:5px;">
-          <div class="mini-yes-fill" data-w="${pct}%" style="width:0%;"></div>
-          <div class="mini-no-fill"></div>
-        </div>
-        <div style="text-align:center;font-size:10px;color:var(--ink4);margin-top:2px;">${pct}% Yes</div>
-      </td>`;
-    }
-
-    html+=`<tr>
-      <td style="text-align:center;font-weight:700;color:var(--gold-dark);font-size:13px;">#${m.filteredRank}</td>
-      <td style="font-weight:600;color:var(--ink);">${m.name}</td>
-      <td><span class="badge" style="color:${s.color};background:${s.bg};border:1px solid ${s.border}">${m.depts[0]||'—'}</span></td>
-      <td style="text-align:center;">
-        ${orAvg!==null?`<div style="font-family:var(--font-display);font-size:18px;color:var(--gold-dark);">${orAvg.toFixed(1)}</div><div style="font-size:10px;color:var(--ink4);">/5 · ${fb.overallRatings.length} resp.</div>`:'<span style="color:var(--ink4);font-size:11px;">—</span>'}
-      </td>
-      ${qCell('Q1')}${qCell('Q2')}${qCell('Q3')}${qCell('Q4')}${qCell('Q5')}
-    </tr>`;
-  });
-
-  html+=`</tbody></table></div>`;
-  container.innerHTML=html;
-
-  // Animate mini bars
-  setTimeout(()=>{
-    container.querySelectorAll('.mini-yes-fill[data-w]').forEach(el=>{
-      el.style.width=el.getAttribute('data-w');
-    });
-  },200);
 }
 
 /* ── NPS HELPERS ── */
@@ -1265,18 +930,110 @@ function renderNPSPanel(){
   if(total>0){
     npsDonutInst=new Chart(document.getElementById('npsDonutChart'),{
       type:'doughnut',
-      data:{labels:['Promoters','Passives','Detractors'],datasets:[{data:[promoters,passives,detractors],backgroundColor:['#10b981','#f59e0b','#ef4444'],borderColor:['#d1fae5','#fef3c7','#fee2e2'],borderWidth:3,hoverOffset:8}]},
-      options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(42,24,0,0.92)',titleColor:'#fde9a0',bodyColor:'#f5e9c8',borderColor:'#c48a00',borderWidth:1,padding:10,callbacks:{label:ctx=>{const pct=Math.round(ctx.parsed/total*100);return` ${ctx.label}: ${ctx.parsed} (${pct}%)`;}}},datalabels:{color:'#fff',font:{weight:'bold',size:12},formatter:(v,ctx)=>{const pct=Math.round(v/total*100);return pct>8?pct+'%':'';}}}},animation:{animateRotate:true,duration:900}},
+      data:{
+        labels:['Promoters','Passives','Detractors'],
+        datasets:[{
+          data:[promoters,passives,detractors],
+          backgroundColor:['#10b981','#f59e0b','#ef4444'],
+          borderColor:['#d1fae5','#fef3c7','#fee2e2'],
+          borderWidth:3,
+          hoverOffset:8
+        }]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        cutout:'68%',
+        plugins:{
+          legend:{display:false},
+          tooltip:{
+            backgroundColor:'rgba(42,24,0,0.92)',titleColor:'#fde9a0',bodyColor:'#f5e9c8',
+            borderColor:'#c48a00',borderWidth:1,padding:10,
+            callbacks:{
+              label:ctx=>{
+                const pct=Math.round(ctx.parsed/total*100);
+                return` ${ctx.label}: ${ctx.parsed} (${pct}%)`;
+              }
+            }
+          },
+          datalabels:{
+            color:'#fff',font:{weight:'bold',size:12},
+            formatter:(v,ctx)=>{
+              const pct=Math.round(v/total*100);
+              return pct>8?pct+'%':'';
+            }
+          }
+        },
+        animation:{animateRotate:true,duration:900}
+      },
       plugins:[ChartDataLabels]
     });
 
-    const scoreLabels=Object.keys(scoreFreq),scoreData=Object.values(scoreFreq);
-    const barBgColors=scoreLabels.map(s=>{const n=parseInt(s);if(n>=9)return'rgba(16,185,129,0.85)';if(n>=7)return'rgba(245,158,11,0.85)';return'rgba(239,68,68,0.80)';});
-    const barBorderColors=scoreLabels.map(s=>{const n=parseInt(s);if(n>=9)return'#059669';if(n>=7)return'#d97706';return'#dc2626';});
+    const scoreLabels=Object.keys(scoreFreq);
+    const scoreData=Object.values(scoreFreq);
+    const barBgColors=scoreLabels.map(s=>{
+      const n=parseInt(s);
+      if(n>=9)return'rgba(16,185,129,0.85)';
+      if(n>=7)return'rgba(245,158,11,0.85)';
+      return'rgba(239,68,68,0.80)';
+    });
+    const barBorderColors=scoreLabels.map(s=>{
+      const n=parseInt(s);
+      if(n>=9)return'#059669';
+      if(n>=7)return'#d97706';
+      return'#dc2626';
+    });
     npsBarChartInst=new Chart(document.getElementById('npsBarChart'),{
       type:'bar',
-      data:{labels:scoreLabels,datasets:[{label:'Responses',data:scoreData,backgroundColor:barBgColors,borderColor:barBorderColors,borderWidth:1.5,borderRadius:5,borderSkipped:false}]},
-      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(42,24,0,0.92)',titleColor:'#fde9a0',bodyColor:'#f5e9c8',borderColor:'#c48a00',borderWidth:1,padding:10,callbacks:{title:ctx=>`Score ${ctx[0].label}`,label:ctx=>{const pct=total>0?Math.round(ctx.parsed.y/total*100):0;const seg=parseInt(ctx.label)>=9?'Promoter':parseInt(ctx.label)>=7?'Passive':'Detractor';return[` Count: ${ctx.parsed.y} (${pct}%)`,` Segment: ${seg}`];}}},datalabels:{anchor:'end',align:'end',color:ctx=>barBorderColors[ctx.dataIndex],font:{weight:'bold',size:10},formatter:v=>v>0?v:''}},scales:{x:{ticks:{font:{size:11},color:'#8a6020'},grid:{display:false},border:{display:false},title:{display:true,text:'NPS Score (1–10)',font:{size:11},color:'#8a6020'}},y:{ticks:{stepSize:1,font:{size:10},color:'#8a6020'},grid:{color:'rgba(120,80,10,0.07)'},border:{display:false},title:{display:true,text:'Responses',font:{size:11},color:'#8a6020'}}},animation:{duration:800,easing:'easeOutQuart'},layout:{padding:{top:20,right:10}}},
+      data:{
+        labels:scoreLabels,
+        datasets:[{
+          label:'Responses',
+          data:scoreData,
+          backgroundColor:barBgColors,
+          borderColor:barBorderColors,
+          borderWidth:1.5,
+          borderRadius:5,
+          borderSkipped:false
+        }]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{
+          legend:{display:false},
+          tooltip:{
+            backgroundColor:'rgba(42,24,0,0.92)',titleColor:'#fde9a0',bodyColor:'#f5e9c8',
+            borderColor:'#c48a00',borderWidth:1,padding:10,
+            callbacks:{
+              title:ctx=>`Score ${ctx[0].label}`,
+              label:ctx=>{
+                const pct=total>0?Math.round(ctx.parsed.y/total*100):0;
+                const seg=parseInt(ctx.label)>=9?'Promoter':parseInt(ctx.label)>=7?'Passive':'Detractor';
+                return[` Count: ${ctx.parsed.y} (${pct}%)`,` Segment: ${seg}`];
+              }
+            }
+          },
+          datalabels:{
+            anchor:'end',align:'end',
+            color:ctx=>barBorderColors[ctx.dataIndex],
+            font:{weight:'bold',size:10},
+            formatter:v=>v>0?v:''
+          }
+        },
+        scales:{
+          x:{
+            ticks:{font:{size:11},color:'#8a6020'},
+            grid:{display:false},border:{display:false},
+            title:{display:true,text:'NPS Score (1–10)',font:{size:11},color:'#8a6020'}
+          },
+          y:{
+            ticks:{stepSize:1,font:{size:10},color:'#8a6020'},
+            grid:{color:'rgba(120,80,10,0.07)'},border:{display:false},
+            title:{display:true,text:'Responses',font:{size:11},color:'#8a6020'}
+          }
+        },
+        animation:{duration:800,easing:'easeOutQuart'},
+        layout:{padding:{top:20,right:10}}
+      },
       plugins:[ChartDataLabels]
     });
   }else{
@@ -1317,7 +1074,7 @@ function showPanel(id,el){
   document.getElementById('pageEyebrow').textContent=meta[id][0];
   document.getElementById('pageTitle').textContent=meta[id][1];
   document.getElementById('deptFilterRow').style.visibility=id==='mentors'?'visible':'hidden';
-  if(id==='mentors'){renderMentorTable();renderInsightCharts(currentDeptFilter);renderDeepDive();}
+  if(id==='mentors'){renderMentorTable();renderInsightCharts(currentDeptFilter);}
   if(id==='nps'){renderNPSPanel();}
 }
 
@@ -1326,75 +1083,246 @@ function setInsightChart(type,btn){
   currentInsightChart=type;
   document.querySelectorAll('.bubble-tab').forEach(b=>b.classList.remove('active'));
   if(btn)btn.classList.add('active');
+
   document.getElementById('insightScatterWrap').style.display=type==='scatter'?'block':'none';
   document.getElementById('insightHorizWrap').style.display=type==='horizontal'?'block':'none';
   document.getElementById('insightResponseWrap').style.display=type==='responses'?'block':'none';
+
   const legend=document.getElementById('insightScatterLegend');
   legend.style.display=type==='scatter'?'flex':'none';
+
   renderInsightCharts(currentDeptFilter);
 }
 
 /* ── INSIGHT CHARTS ── */
 function renderInsightCharts(filterDept){
-  const list=getFilteredMentors(filterDept);
+  const list = getFilteredMentors(filterDept);
   document.getElementById('insightChartBadge').textContent=list.length>0?`${list.length} mentors`:'No data';
-  if(currentInsightChart==='scatter')renderScatterChart(list);
-  else if(currentInsightChart==='horizontal')renderHorizChart(list);
-  else if(currentInsightChart==='responses')renderResponseChart(list);
+
+  if(currentInsightChart==='scatter') renderScatterChart(list);
+  else if(currentInsightChart==='horizontal') renderHorizChart(list);
+  else if(currentInsightChart==='responses') renderResponseChart(list);
 }
 
 function renderScatterChart(list){
   if(insightScatterInst){insightScatterInst.destroy();insightScatterInst=null;}
-  if(!list.length){document.getElementById('insightScatterWrap').innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:380px;color:var(--ink3);font-size:13px;">No mentor data available</div>';return;}
-  if(!document.getElementById('insightScatterChart'))document.getElementById('insightScatterWrap').innerHTML='<canvas id="insightScatterChart"></canvas>';
-  const scatterData=list.map(m=>({x:m.responses,y:m.rating,r:Math.max(6,m.subjects*4),label:m.name,subjects:m.subjects,bayesian:m.bayesianRating,dept:m.depts[0]||''}));
+  if(!list.length){
+    document.getElementById('insightScatterWrap').innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:380px;color:var(--ink3);font-size:13px;">No mentor data available</div>';
+    return;
+  }
+  if(!document.getElementById('insightScatterChart'))
+    document.getElementById('insightScatterWrap').innerHTML='<canvas id="insightScatterChart"></canvas>';
+
+  const scatterData=list.map(m=>({
+    x:m.responses,
+    y:m.rating,
+    r:Math.max(6,m.subjects*4),
+    label:m.name,
+    subjects:m.subjects,
+    bayesian:m.bayesianRating,
+    dept:m.depts[0]||''
+  }));
+
   insightScatterInst=new Chart(document.getElementById('insightScatterChart'),{
     type:'bubble',
-    data:{datasets:[{label:'Mentors',data:scatterData,backgroundColor:scatterData.map(d=>getStatusColor(d.y)+'cc'),borderColor:scatterData.map(d=>getStatusColor(d.y)),borderWidth:1.5,hoverBorderWidth:2.5}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(42,24,0,0.95)',titleColor:'#fde9a0',bodyColor:'#f5e9c8',borderColor:'#c48a00',borderWidth:1,padding:12,callbacks:{title:ctx=>ctx[0].raw.label,label:ctx=>{const d=ctx.raw;return[` Avg Rating: ${d.y.toFixed(2)} / 5`,` Responses: ${d.x}`,` Subjects: ${d.subjects}`,` Bayesian: ${d.bayesian.toFixed(4)}`,` Dept: ${d.dept}`];}}},datalabels:{display:ctx=>{const d=ctx.dataset.data[ctx.dataIndex];return d.r>=12;},color:'#2a1800',font:{size:9,weight:'600'},formatter:(v,ctx)=>{const name=ctx.dataset.data[ctx.dataIndex].label;return name.length>12?name.slice(0,11)+'…':name;},anchor:'center',align:'center'}},scales:{x:{title:{display:true,text:'Total Responses',font:{size:12},color:'#8a6020'},ticks:{font:{size:10},color:'#8a6020'},grid:{color:'rgba(120,80,10,0.06)'},border:{display:false}},y:{min:0,max:5,title:{display:true,text:'Average Rating / 5',font:{size:12},color:'#8a6020'},ticks:{stepSize:0.5,font:{size:10},color:'#8a6020',callback:v=>v.toFixed(1)},grid:{color:'rgba(120,80,10,0.06)'},border:{display:false}}},layout:{padding:{top:20,right:20,bottom:10,left:10}},animation:{duration:700,easing:'easeOutQuart'}},
+    data:{
+      datasets:[{
+        label:'Mentors',
+        data:scatterData,
+        backgroundColor:scatterData.map(d=>getStatusColor(d.y)+'cc'),
+        borderColor:scatterData.map(d=>getStatusColor(d.y)),
+        borderWidth:1.5,
+        hoverBorderWidth:2.5
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'rgba(42,24,0,0.95)',
+          titleColor:'#fde9a0',bodyColor:'#f5e9c8',
+          borderColor:'#c48a00',borderWidth:1,padding:12,
+          callbacks:{
+            title:ctx=>ctx[0].raw.label,
+            label:ctx=>{
+              const d=ctx.raw;
+              return[
+                ` Avg Rating: ${d.y.toFixed(2)} / 5`,
+                ` Responses: ${d.x}`,
+                ` Subjects: ${d.subjects}`,
+                ` Bayesian: ${d.bayesian.toFixed(4)}`,
+                ` Dept: ${d.dept}`
+              ];
+            }
+          }
+        },
+        datalabels:{
+          display:ctx=>{
+            const d=ctx.dataset.data[ctx.dataIndex];
+            return d.r>=12;
+          },
+          color:'#2a1800',
+          font:{size:9,weight:'600'},
+          formatter:(v,ctx)=>{
+            const name=ctx.dataset.data[ctx.dataIndex].label;
+            return name.length>12?name.slice(0,11)+'…':name;
+          },
+          anchor:'center',align:'center'
+        }
+      },
+      scales:{
+        x:{
+          title:{display:true,text:'Total Responses',font:{size:12},color:'#8a6020'},
+          ticks:{font:{size:10},color:'#8a6020'},
+          grid:{color:'rgba(120,80,10,0.06)'},
+          border:{display:false}
+        },
+        y:{
+          min:0,max:5,
+          title:{display:true,text:'Average Rating / 5',font:{size:12},color:'#8a6020'},
+          ticks:{stepSize:0.5,font:{size:10},color:'#8a6020',callback:v=>v.toFixed(1)},
+          grid:{color:'rgba(120,80,10,0.06)'},
+          border:{display:false}
+        }
+      },
+      layout:{padding:{top:20,right:20,bottom:10,left:10}},
+      animation:{duration:700,easing:'easeOutQuart'}
+    },
     plugins:[ChartDataLabels]
   });
 }
 
 function renderHorizChart(list){
   if(insightHorizInst){insightHorizInst.destroy();insightHorizInst=null;}
-  if(!list.length)return;
-  if(!document.getElementById('insightHorizChart'))document.getElementById('insightHorizWrap').innerHTML='<canvas id="insightHorizChart"></canvas>';
-  const top5=list.slice(0,Math.min(5,list.length));
-  const bottom5=list.slice(-Math.min(5,list.length)).reverse();
+  if(!list.length) return;
+  if(!document.getElementById('insightHorizChart'))
+    document.getElementById('insightHorizWrap').innerHTML='<canvas id="insightHorizChart"></canvas>';
+
+  const top5=list.slice(0,Math.min(5, list.length));
+  const bottom5=list.slice(-Math.min(5, list.length)).reverse();
   const combined=[...top5,...bottom5];
   const labels=combined.map((m,i)=>(i<top5.length?'▲ ':'▼ ')+m.name);
   const data=combined.map(m=>m.bayesianRating);
   const colors=combined.map((m,i)=>i<top5.length?'rgba(16,185,129,0.80)':'rgba(239,68,68,0.75)');
   const borders=combined.map((m,i)=>i<top5.length?'#059669':'#dc2626');
+
   document.getElementById('insightHorizWrap').style.height=Math.max(340,combined.length*38+80)+'px';
+
   insightHorizInst=new Chart(document.getElementById('insightHorizChart'),{
     type:'bar',
-    data:{labels,datasets:[{data,backgroundColor:colors,borderColor:borders,borderWidth:1.5,borderRadius:5,borderSkipped:false,barThickness:22}]},
-    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(42,24,0,0.95)',titleColor:'#fde9a0',bodyColor:'#f5e9c8',borderColor:'#c48a00',borderWidth:1,padding:10,callbacks:{title:ctx=>combined[ctx[0].dataIndex].name,label:ctx=>{const m=combined[ctx.dataIndex];return[` Bayesian: ${m.bayesianRating.toFixed(4)}`,` Avg Rating: ${m.rating.toFixed(2)}/5`,` Responses: ${m.responses}`];}}},datalabels:{anchor:'end',align:'end',color:ctx=>borders[ctx.dataIndex],font:{weight:'bold',size:10},formatter:v=>v.toFixed(2)}},scales:{x:{min:0,max:5,ticks:{stepSize:1,font:{size:10},color:'#8a6020',callback:v=>v.toFixed(1)},grid:{color:'rgba(120,80,10,0.07)'},border:{display:false}},y:{ticks:{font:{size:11},color:'#4a2e00',autoSkip:false},grid:{display:false},border:{display:false}}},layout:{padding:{right:50,top:10}}},
+    data:{
+      labels,
+      datasets:[{
+        data,
+        backgroundColor:colors,
+        borderColor:borders,
+        borderWidth:1.5,
+        borderRadius:5,
+        borderSkipped:false,
+        barThickness:22
+      }]
+    },
+    options:{
+      indexAxis:'y',
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'rgba(42,24,0,0.95)',titleColor:'#fde9a0',bodyColor:'#f5e9c8',
+          borderColor:'#c48a00',borderWidth:1,padding:10,
+          callbacks:{
+            title:ctx=>combined[ctx[0].dataIndex].name,
+            label:ctx=>{
+              const m=combined[ctx.dataIndex];
+              return[` Bayesian: ${m.bayesianRating.toFixed(4)}`,` Avg Rating: ${m.rating.toFixed(2)}/5`,` Responses: ${m.responses}`];
+            }
+          }
+        },
+        datalabels:{
+          anchor:'end',align:'end',
+          color:ctx=>borders[ctx.dataIndex],
+          font:{weight:'bold',size:10},
+          formatter:v=>v.toFixed(2)
+        }
+      },
+      scales:{
+        x:{min:0,max:5,ticks:{stepSize:1,font:{size:10},color:'#8a6020',callback:v=>v.toFixed(1)},grid:{color:'rgba(120,80,10,0.07)'},border:{display:false}},
+        y:{ticks:{font:{size:11},color:'#4a2e00',autoSkip:false},grid:{display:false},border:{display:false}}
+      },
+      layout:{padding:{right:50,top:10}}
+    },
     plugins:[ChartDataLabels]
   });
 }
 
 function renderResponseChart(list){
   if(insightResponseInst){insightResponseInst.destroy();insightResponseInst=null;}
-  if(!list.length)return;
-  if(!document.getElementById('insightResponseChart'))document.getElementById('insightResponseWrap').innerHTML='<canvas id="insightResponseChart"></canvas>';
+  if(!list.length) return;
+  if(!document.getElementById('insightResponseChart'))
+    document.getElementById('insightResponseWrap').innerHTML='<canvas id="insightResponseChart"></canvas>';
+
   const sorted=[...list].sort((a,b)=>b.responses-a.responses).slice(0,20);
   const maxR=Math.max(...sorted.map(m=>m.responses),1);
-  const colors=sorted.map(m=>{const ratio=m.responses/maxR;const r=Math.round(92+(196-92)*ratio);const g=Math.round(54+(138-54)*ratio);return`rgba(${r},${g},0,${0.55+0.35*ratio})`;});
+  const colors=sorted.map(m=>{
+    const ratio=m.responses/maxR;
+    const r=Math.round(92+(196-92)*ratio);
+    const g=Math.round(54+(138-54)*ratio);
+    return`rgba(${r},${g},0,${0.55+0.35*ratio})`;
+  });
+
   document.getElementById('insightResponseWrap').style.height=Math.max(320,sorted.length*28+100)+'px';
+
   insightResponseInst=new Chart(document.getElementById('insightResponseChart'),{
     type:'bar',
-    data:{labels:sorted.map(m=>m.name),datasets:[{data:sorted.map(m=>m.responses),backgroundColor:colors,borderColor:sorted.map(m=>'#c48a00'),borderWidth:1,borderRadius:5,borderSkipped:false,barThickness:20}]},
-    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(42,24,0,0.95)',titleColor:'#fde9a0',bodyColor:'#f5e9c8',borderColor:'#c48a00',borderWidth:1,padding:10,callbacks:{title:ctx=>sorted[ctx[0].dataIndex].name,label:ctx=>{const m=sorted[ctx.dataIndex];return[` Responses: ${m.responses}`,` Avg Rating: ${m.rating.toFixed(2)}/5`,` Subjects: ${m.subjects}`];}}},datalabels:{anchor:'end',align:'end',color:'#5c3600',font:{weight:'bold',size:10},formatter:v=>v}},scales:{x:{ticks:{font:{size:10},color:'#8a6020'},grid:{color:'rgba(120,80,10,0.07)'},border:{display:false},title:{display:true,text:'Total Responses',font:{size:11},color:'#8a6020'}},y:{ticks:{font:{size:11},color:'#4a2e00',autoSkip:false},grid:{display:false},border:{display:false}}},layout:{padding:{right:50,top:10}}},
+    data:{
+      labels:sorted.map(m=>m.name),
+      datasets:[{
+        data:sorted.map(m=>m.responses),
+        backgroundColor:colors,
+        borderColor:sorted.map(m=>'#c48a00'),
+        borderWidth:1,
+        borderRadius:5,
+        borderSkipped:false,
+        barThickness:20
+      }]
+    },
+    options:{
+      indexAxis:'y',
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'rgba(42,24,0,0.95)',titleColor:'#fde9a0',bodyColor:'#f5e9c8',
+          borderColor:'#c48a00',borderWidth:1,padding:10,
+          callbacks:{
+            title:ctx=>sorted[ctx[0].dataIndex].name,
+            label:ctx=>{
+              const m=sorted[ctx.dataIndex];
+              return[` Responses: ${m.responses}`,` Avg Rating: ${m.rating.toFixed(2)}/5`,` Subjects: ${m.subjects}`];
+            }
+          }
+        },
+        datalabels:{
+          anchor:'end',align:'end',
+          color:'#5c3600',
+          font:{weight:'bold',size:10},
+          formatter:v=>v
+        }
+      },
+      scales:{
+        x:{ticks:{font:{size:10},color:'#8a6020'},grid:{color:'rgba(120,80,10,0.07)'},border:{display:false},title:{display:true,text:'Total Responses',font:{size:11},color:'#8a6020'}},
+        y:{ticks:{font:{size:11},color:'#4a2e00',autoSkip:false},grid:{display:false},border:{display:false}}
+      },
+      layout:{padding:{right:50,top:10}}
+    },
     plugins:[ChartDataLabels]
   });
 }
 
 /* ── MENTOR TABLE ── */
 function renderMentorTable(){
-  const list=getFilteredMentors(currentDeptFilter);
+  const list = getFilteredMentors(currentDeptFilter);
   const sumResponses=list.reduce((s,m)=>s+m.responses,0);
   const sumAvgXResp=list.reduce((s,m)=>s+m.avgXResponses,0);
   const gm=sumResponses>0?(sumAvgXResp/sumResponses):0;
@@ -1403,19 +1331,24 @@ function renderMentorTable(){
   document.getElementById('mtSumAvgXResp').textContent=sumAvgXResp>0?sumAvgXResp.toFixed(2):'—';
   document.getElementById('mentorTableCountBadge').textContent=list.length>0?`${list.length} mentors`:'No data';
   if(!list.length){document.getElementById('mentorTableBody').innerHTML='<tr><td colspan="8" style="text-align:center;padding:40px;color:var(--ink3)">No mentors found for this department</td></tr>';return;}
-  const deptLabel=(currentDeptFilter&&currentDeptFilter!=='all')?currentDeptFilter:null;
+
+  // ── FIX: show only the selected department when a filter is active ──
+  const deptLabel = (currentDeptFilter && currentDeptFilter !== 'all')
+    ? currentDeptFilter
+    : null; // null means show all depts
+
   const rankColors={1:'#f5c842',2:'#e0e0e0',3:'#f0c498'};
   document.getElementById('mentorTableBody').innerHTML=list.map(m=>{
-    const displayRank=m.filteredRank;
+    const displayRank = m.filteredRank;
     const rankBg=rankColors[displayRank]||'transparent';
     const rankColor=displayRank<=3?'#3d2200':'var(--ink3)';
     const rankBorder=displayRank<=3?'none':'1px solid var(--border2)';
-    const displayDept=deptLabel||m.depts.join(', ');
-    const s=deptStyle(deptLabel||m.depts[0]||'');
+    // Show only the filtered dept; if "All", show all depts the mentor belongs to
+    const displayDept = deptLabel || m.depts.join(', ');
+    const s=deptStyle(deptLabel || m.depts[0]||'');
     return`<tr>
       <td style="text-align:center;"><span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:${rankBg};border:${rankBorder};font-size:11px;font-weight:700;color:${rankColor};">${displayRank}</span></td>
-      <td style="font-weight:600;font-size:13.5px;color:var(--ink);">${m.name}</td>
-      <td><span class="badge" style="color:${s.color};background:${s.bg};border:1px solid ${s.border}">${displayDept}</span></td>
+<td><button onclick="openMentorModal('${m.name.replace(/'/g,"\\'")}'" style="background:none;border:none;color:#7a4f00;font-size:13.5px;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px;font-family:var(--font-body);padding:0;">${m.name}</button></td>      <td><span class="badge" style="color:${s.color};background:${s.bg};border:1px solid ${s.border}">${displayDept}</span></td>
       <td style="text-align:center;"><span style="font-family:var(--font-display);font-size:18px;color:var(--gold-dark);">${m.rating.toFixed(2)}</span><span style="font-size:11px;color:var(--ink4);">/5</span></td>
       <td style="text-align:center;font-family:var(--font-display);font-size:16px;color:var(--ink2);">${m.responses}</td>
       <td style="text-align:center;font-family:var(--font-display);font-size:16px;color:var(--gold-dark);">${m.avgXResponses.toFixed(2)}</td>
@@ -1437,8 +1370,23 @@ function initSummaryCharts(){
   if(chartInstances.topMentors){chartInstances.topMentors.destroy();chartInstances.topMentors=null;}
   chartInstances.topMentors=new Chart(document.getElementById('topMentorsChart'),{
     type:'bar',
-    data:{labels:top.map(m=>m.name),datasets:[{data:top.map(m=>m.bayesianRating),backgroundColor:top.map((m,i)=>i===0?'#5c3600':i===top.length-1?'#f5c842':'#c48a00'),borderRadius:5,borderSkipped:false,barThickness:22}]},
-    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const m=top[ctx.dataIndex];return`Bayesian: ${ctx.parsed.x.toFixed(2)} | Avg: ${m.rating.toFixed(1)}/5 (${m.subjects} subjects, ${m.responses} responses)`;}}},datalabels:{anchor:'end',align:'end',color:'#2a1800',font:{weight:'bold',size:11},formatter:v=>v.toFixed(2)}},scales:{x:{min:0,max:5,ticks:{stepSize:1,font:{size:10},callback:v=>v.toFixed(1)},grid:{color:'rgba(120,80,10,0.07)'},border:{display:false}},y:{ticks:{font:{size:11},autoSkip:false},grid:{display:false},border:{display:false}}},layout:{padding:{right:40}}},
+    data:{
+      labels:top.map(m=>m.name),
+      datasets:[{data:top.map(m=>m.bayesianRating),backgroundColor:top.map((m,i)=>i===0?'#5c3600':i===top.length-1?'#f5c842':'#c48a00'),borderRadius:5,borderSkipped:false,barThickness:22}]
+    },
+    options:{
+      indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:ctx=>{const m=top[ctx.dataIndex];return`Bayesian: ${ctx.parsed.x.toFixed(2)} | Avg: ${m.rating.toFixed(1)}/5 (${m.subjects} subjects, ${m.responses} responses)`;}}},
+        datalabels:{anchor:'end',align:'end',color:'#2a1800',font:{weight:'bold',size:11},formatter:v=>v.toFixed(2)}
+      },
+      scales:{
+        x:{min:0,max:5,ticks:{stepSize:1,font:{size:10},callback:v=>v.toFixed(1)},grid:{color:'rgba(120,80,10,0.07)'},border:{display:false}},
+        y:{ticks:{font:{size:11},autoSkip:false},grid:{display:false},border:{display:false}}
+      },
+      layout:{padding:{right:40}}
+    },
     plugins:[ChartDataLabels]
   });
   document.getElementById('topMentorsBadge').textContent=top.length>0?`Top ${top.length}`:'No data';
@@ -1521,12 +1469,89 @@ table{width:100%;border-collapse:collapse;font-size:13px;}.sec{margin-bottom:40p
   a.download=`Report-${collegeName.replace(/[^a-z0-9]/gi,'-')}-${new Date().toISOString().split('T')[0]}.html`;
   a.click();URL.revokeObjectURL(a.href);
 }
-
+const MM_QUESTIONS=[
+  "Sessions were clear and well-structured",
+  "Professional behavior during sessions",
+  "Effective in solving problems with examples",
+  "Supported doubt clearing and student queries",
+  "Sessions improved understanding and skills"
+];
+function openMentorModal(mentorName){
+  const m=MENTORS.find(x=>x.name===mentorName);
+  if(!m)return;
+  document.getElementById('mmName').textContent=m.name;
+  document.getElementById('mmSub').textContent=m.depts.join(', ')+' · '+m.responses+' responses · '+m.subjects+' subject(s)';
+  const totalYes=m.qs.reduce((s,q)=>s+q.y,0);
+  const totalAll=m.qs.reduce((s,q)=>s+q.y+q.n,0);
+  document.getElementById('mmStats').innerHTML=`
+    <div style="background:var(--bg2);border-radius:8px;padding:12px 14px;border:1px solid var(--border);">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);">Avg rating</div>
+      <div style="font-family:var(--font-display);font-size:24px;color:var(--gold-dark);">${m.rating.toFixed(2)}</div>
+      <div style="font-size:11px;color:var(--ink3);">out of 5</div>
+    </div>
+    <div style="background:var(--bg2);border-radius:8px;padding:12px 14px;border:1px solid var(--border);">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);">Responses</div>
+      <div style="font-family:var(--font-display);font-size:24px;color:var(--gold-dark);">${m.responses}</div>
+      <div style="font-size:11px;color:var(--ink3);">total feedback</div>
+    </div>
+    <div style="background:var(--bg2);border-radius:8px;padding:12px 14px;border:1px solid var(--border);">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);">Overall yes rate</div>
+      <div style="font-family:var(--font-display);font-size:24px;color:var(--green-dark);">${totalAll>0?Math.round(totalYes/totalAll*100):0}%</div>
+      <div style="font-size:11px;color:var(--ink3);">across 5 questions</div>
+    </div>`;
+  document.getElementById('mmQRows').innerHTML=MM_QUESTIONS.map((q,i)=>{
+    const d=m.qs[i]||{y:0,n:0};
+    const tot=d.y+d.n;
+    const yp=tot>0?Math.round(d.y/tot*100):0;
+    const np=100-yp;
+    return`<div style="display:grid;grid-template-columns:1fr 220px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);">
+      <div>
+        <div style="font-size:10px;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;">Q${i+1}</div>
+        <div style="font-size:13px;color:var(--ink);line-height:1.45;">${q}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="display:flex;align-items:center;gap:7px;">
+          <span style="font-size:11px;font-weight:600;color:#065f46;width:22px;">Yes</span>
+          <div style="flex:1;height:14px;background:var(--bg2);border-radius:20px;overflow:hidden;">
+            <div style="width:${yp}%;height:100%;background:#10b981;border-radius:20px;"></div>
+          </div>
+          <span style="font-size:11px;color:var(--ink3);width:56px;text-align:right;">${d.y} (${yp}%)</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:7px;">
+          <span style="font-size:11px;font-weight:600;color:#7f1d1d;width:22px;">No</span>
+          <div style="flex:1;height:14px;background:var(--bg2);border-radius:20px;overflow:hidden;">
+            <div style="width:${np}%;height:100%;background:#ef4444;border-radius:20px;"></div>
+          </div>
+          <span style="font-size:11px;color:var(--ink3);width:56px;text-align:right;">${d.n} (${np}%)</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  document.getElementById('mentorModalOverlay').style.display='flex';
+}
+function closeMentorModal(){
+  document.getElementById('mentorModalOverlay').style.display='none';
+}
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded',()=>{
   buildDropdown();
   document.getElementById('loadingOverlay').classList.add('hidden');
 });
 </script>
+  <div id="mentorModalOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:9000;align-items:center;justify-content:center;padding:16px;" onclick="if(event.target===this)closeMentorModal()">
+  <div style="background:#fff;border-radius:14px;border:1px solid rgba(120,80,10,0.15);width:100%;max-width:680px;max-height:88vh;overflow-y:auto;padding:28px;box-shadow:0 12px 40px rgba(90,50,0,0.22);" onclick="event.stopPropagation()">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+      <div>
+        <div style="font-family:var(--font-display);font-size:22px;color:var(--ink);" id="mmName">—</div>
+        <div style="font-size:12px;color:var(--ink3);margin-top:4px;" id="mmSub">—</div>
+      </div>
+      <button onclick="closeMentorModal()" style="border:1px solid var(--border2);border-radius:8px;width:32px;height:32px;background:none;cursor:pointer;font-size:18px;color:var(--ink3);">×</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;" id="mmStats"></div>
+    <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:12px;">Question-by-question breakdown</div>
+    <div id="mmQRows"></div>
+    <div style="font-size:11px;color:var(--ink4);border-top:1px solid var(--border);padding-top:10px;margin-top:16px;">* Yes/No counts are aggregated across all subjects this mentor teaches.</div>
+  </div>
+</div>
 </body>
 </html>
